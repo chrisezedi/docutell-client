@@ -11,8 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        accent: "var(--accent)"
       },
+      fontFamily: {
+        'anton': ['var(--font-anton)']
+      }
     },
   },
   plugins: [],
+  darkMode: "class"
 } satisfies Config;
