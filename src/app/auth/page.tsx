@@ -8,10 +8,10 @@ export default function Auth() {
     return (
         <section className="px-3 pt-[100px] text-center">
             <header className="">
-                <h1 className="text-3xl mb-4 font-bold">Docutell</h1>
+                <h1 className="text-5xl mb-4 text-primary font-bold">Docutell</h1>
                 <p className="text-l">Get access to the only document intelligence system you would ever need</p>
 
-                <span className="flex mt-[20px] text-medium text-accent font-bold justify-center items-center">
+                <span className="flex mt-[20px] text-medium text-primary font-bold justify-center items-center">
                     <p>Swipe to learn more!</p>
                     <FiArrowRight />
                 </span>
@@ -24,7 +24,7 @@ export default function Auth() {
                 </span>
                 <Image src={docUploadSvg} alt="document upload svg" width={200} height={200} />
 
-                <button className="bg-primary text-black rounded-full fixed bottom-10 font-bold p-3 flex items-center">
+                <button className="bg-primary text-white rounded-full fixed bottom-10 font-bold p-3 flex items-center">
                     <FaGoogle/> <span className="ms-3">Continue with Google</span>
                 </button>
             </main>
