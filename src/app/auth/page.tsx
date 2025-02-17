@@ -1,31 +1,43 @@
-import { FiArrowRight } from "react-icons/fi"
 import { FaGoogle } from "react-icons/fa"
-import Image from "next/image"
 import docUploadSvg from "../../../public/doc-upload.svg"
+import keyTopicsSvg from "../../../public/key-topics.svg"
+import actionableItemsSvg from "../../../public/actionable-items.svg"
+
+import Carousel from "../components/carousel"
+import { CarouselListProps } from "../types/types"
+import CarouselItem from "../components/carousel-item"
 
 export default function Auth() {
-
+    const carouselItems: CarouselListProps = {
+        items: [
+            { label: "Upload Documents", imgUrl: docUploadSvg, alt: "document upload svg" },
+            { label: "Discover Key Topics", imgUrl: keyTopicsSvg, alt: "key topics svg" },
+            { label: "Get Actionable Items", imgUrl: actionableItemsSvg, alt: "actionable items svg", height:200 },
+        ]
+    }
     return (
         <section className="px-3 pt-[100px] text-center">
             <header className="">
                 <h1 className="text-5xl mb-4 text-primary font-bold">Docutell</h1>
                 <p className="text-l">Get access to the only document intelligence system you would ever need</p>
-
-                <span className="flex mt-[20px] text-medium text-primary font-bold justify-center items-center">
-                    <p>Swipe to learn more!</p>
-                    <FiArrowRight />
-                </span>
             </header>
 
             <main className="py-6 mt-[30px] flex flex-col items-center">
-                <span className="flex items-center mb-4">
-                    (1)
-                    <h3 className="font-bold ms-2">Upload your document</h3>
-                </span>
-                <Image src={docUploadSvg} alt="document upload svg" width={200} height={200} />
+                <div className="md:hidden">
+                    <Carousel items={carouselItems.items} />
+                </div>
+
+                <div className="hidden md:block md:flex gap-4">
+                    {
+                        carouselItems.items.map((item, index) => {
+                            return <CarouselItem key={index} item={{ ...item, index }} />
+                        })
+                    }
+
+                </div>
 
                 <button className="bg-primary text-white rounded-full fixed bottom-10 font-bold p-3 flex items-center">
-                    <FaGoogle/> <span className="ms-3">Continue with Google</span>
+                    <FaGoogle /> <span className="ms-3">Continue with Google</span>
                 </button>
             </main>
         </section>
