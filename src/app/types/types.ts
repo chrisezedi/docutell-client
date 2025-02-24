@@ -1,4 +1,4 @@
-export type CarouselItem = {
+export interface CarouselItem {
     label: string,
     imgUrl: string,
     alt: string,
@@ -7,6 +7,14 @@ export type CarouselItem = {
     index?:number
 };
 
-export type CarouselListProps = {
+export interface CarouselListProps {
     items: CarouselItem[]
+}
+
+export enum BadgeTypes {
+    danger="danger"
+}
+export interface BadgeOptions {
+    type:BadgeTypes;
+    text:string;
 }

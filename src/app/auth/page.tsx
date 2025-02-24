@@ -1,4 +1,3 @@
-import { FaGoogle } from "react-icons/fa"
 import docUploadSvg from "../../../public/doc-upload.svg"
 import keyTopicsSvg from "../../../public/key-topics.svg"
 import actionableItemsSvg from "../../../public/actionable-items.svg"
@@ -6,6 +5,7 @@ import actionableItemsSvg from "../../../public/actionable-items.svg"
 import Carousel from "../components/carousel"
 import { CarouselListProps } from "../types/types"
 import CarouselItem from "../components/carousel-item"
+import GoogleSignIn from "../components/google-signin-btn"
 
 export default function Auth() {
     const carouselItems: CarouselListProps = {
@@ -15,6 +15,7 @@ export default function Auth() {
             { label: "Get Actionable Items", imgUrl: actionableItemsSvg, alt: "actionable items svg", height:200 },
         ]
     }
+
     return (
         <section className="px-3 pt-[100px] text-center">
             <header className="">
@@ -36,9 +37,7 @@ export default function Auth() {
 
                 </div>
 
-                <button className="bg-primary text-white rounded-full fixed bottom-10 font-bold p-3 flex items-center">
-                    <FaGoogle /> <span className="ms-3">Continue with Google</span>
-                </button>
+                <GoogleSignIn/>
             </main>
         </section>
     )
