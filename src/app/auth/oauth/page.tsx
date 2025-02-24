@@ -1,8 +1,8 @@
 "use client"
 
+import Loading from "@/app/loading";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { FaSpinner } from "react-icons/fa";
+import { Suspense, useEffect, useState } from "react";
 
 export default function Oauth() {
     const [error, setError] = useState<string | null>(null);
@@ -12,7 +12,7 @@ export default function Oauth() {
     const params = new URLSearchParams({ code }).toString();
     const router = useRouter();
 
-    useEffect(()=>{
+    useEffect(() => {
         const handleOauthCallback = async () => {
             const request = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/auth/oauth?${params}`);
 
@@ -30,10 +30,6 @@ export default function Oauth() {
     }
 
     return (
-        <div className="flex justify-center items-center h-full">
-            <FaSpinner size={50} className="animate-spin text-primary mb-4" />
-            <p className="ms-4">Processing...</p>
-        </div>
-
+        <Suspense fallback={<Loading />}/>
     )
 }
